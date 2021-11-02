@@ -9,7 +9,7 @@
     Test2
     """,
     
-    'Autor': 'Isaac',
+    'autor': 'Isaac',
     
     'website': 'https:www.WEB.com',
     
