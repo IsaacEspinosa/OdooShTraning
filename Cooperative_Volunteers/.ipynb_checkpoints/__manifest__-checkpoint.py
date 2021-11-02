@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'First Module',
+    'name': 'Cooperative Volunteers',
     
-    'summary': """FirstModule""",
+    'summary': """Module that will organize the volunteers and the shop""",
     
     'description': """
-    First Module
-        Test1
-        Test2
+    Module
+        Volunteer1
+        Volunteer2
     """,
     
     'autor': 'Isaac',
@@ -15,7 +15,7 @@
     'website': 'https:www.WEB.com',
     
     'category':'Training',
-    'version':'0.1'
+    'version':'0.1',
     
     'depends': ['base'],
     
@@ -23,6 +23,6 @@
         
     ],
     'demo':[
-        
+        'demo_data.xml'
     ],
 }

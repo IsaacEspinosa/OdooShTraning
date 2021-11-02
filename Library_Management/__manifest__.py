@@ -23,6 +23,6 @@
         
     ],
     'demo':[
-        
+        'demo/demo_data.xml'
     ],
 }
