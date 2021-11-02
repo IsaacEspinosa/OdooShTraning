@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'First Module',
+    'name': 'Library Management',
     
-    'summary': """FirstModule""",
+    'summary': """Module that will manage many aspects of the Library""",
     
     'description': """
-    First Module
-        Test1
-        Test2
+    Odoo
+        Book1
+        Book2
     """,
     
     'autor': 'Isaac',
@@ -15,7 +15,7 @@
     'website': 'https:www.WEB.com',
     
     'category':'Training',
-    'version':'0.1'
+    'version':'0.1',
     
     'depends': ['base'],
     

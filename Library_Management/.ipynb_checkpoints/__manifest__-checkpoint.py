@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'First Module',
+    'name': 'Odoo To The Moon',
     
-    'summary': """FirstModule""",
+    'summary': """Module to travel to the moon""",
     
     'description': """
-    First Module
-        Test1
-        Test2
+    Odoo
+        Moon1
+        Moon2
     """,
     
     'autor': 'Isaac',
@@ -15,7 +15,7 @@
     'website': 'https:www.WEB.com',
     
     'category':'Training',
-    'version':'0.1'
+    'version':'0.1',
     
     'depends': ['base'],
     
