@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'First Module',
+    'name': 'Odoo To The Moon',
     
-    'summary': """FirstModule""",
+    'summary': """Module to travel to the moon""",
     
     'description': """
-    First Module
-        Test1
-        Test2
+    Odoo
+        Moon1
+        Moon2
     """,
     
     'autor': 'Isaac',
@@ -20,9 +20,10 @@
     'depends': ['base'],
     
     'data':[
-        
+        'security/ship_security.xml',
+        'security/ir.model.access.csv',
     ],
     'demo':[
-        
+        'demo/demo_data.xml'
     ],
 }
