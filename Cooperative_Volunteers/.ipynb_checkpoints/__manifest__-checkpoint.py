@@ -20,9 +20,10 @@
     'depends': ['base'],
     
     'data':[
-        
+        'security/organization_security.xml',
+        'security/ir.model.access.csv',
     ],
     'demo':[
-        'demo_data.xml'
+        'demo/demo_data.xml'
     ],
 }

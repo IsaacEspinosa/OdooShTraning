@@ -1,0 +1,4 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+head_volunteer,Jefe de voluntarios,model_volunteers_task,head_voluntieer,1,1,1,1
+volunteers,Voluntarios,model_volunteers_task,voluntieer,1,1,1,0
+
