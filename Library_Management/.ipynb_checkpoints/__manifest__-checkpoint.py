@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Odoo To The Moon',
+    'name': 'Library Management',
     
-    'summary': """Module to travel to the moon""",
+    'summary': """Module that will manage many aspects of the Library""",
     
     'description': """
     Odoo
-        Moon1
-        Moon2
+        Book1
+        Book2
     """,
     
     'autor': 'Isaac',
@@ -20,9 +20,11 @@
     'depends': ['base'],
     
     'data':[
-        
+        'security/library_security.xml',
+        'security/ir.model.access.csv',
+        'views/books_view.xml',
     ],
     'demo':[
-        
+        'demo/demo_data.xml'
     ],
 }
