@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <record id="spaceship_admin" model="res.groups">
-        <field name="name">Spaceship/Admin</field>
+    <record id="head_voluntieer" model="res.groups">
+        <field name="name">Organization/Head</field>
     </record>
-    <record id="spaceship_crew" model="res.groups">
-        <field name="name">Spaceship/Crew</field>
+    <record id="voluntieer" model="res.groups">
+        <field name="name">Organization/Voluntieer</field>
     </record>
 </odoo>

@@ -5,7 +5,7 @@ class SpaceShip(models.Model):
     _name = 'space.spaceship'
     _description = 'Model for the rocket'
     
-    shipDimensions = fields.Float(string="Dimensiones del barco")
+    shipDimensions = fields.Float(string="Dimensiones de la nave")
     fuelType = fields.Selection(string="Tipo de combustible", 
                               selection=[('1','Magna'),
                                         ('2','Premium'),

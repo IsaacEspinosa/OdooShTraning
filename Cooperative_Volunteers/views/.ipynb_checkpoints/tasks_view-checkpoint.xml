@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="tasks_list_action">
+            <field name="name">Tareas</field>
+            <field name="res_model">volunteers.task</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type= "html">
+                <p class="o_view_nocontent_smiling_face">
+                    Crea tu primer tarea
+                </p>
+            </field>
+        </record>
+        
+        <menuitem name="Voluntarios"
+                  id="menu_task"
+                  sequence="1"/>
+        
+        <menuitem id="menu_task_sub" name="Voluntarios cooperativos" parent="menu_task" sequence="2"/>
+        
+        <menuitem id="menu_task_tasks" name="Tareas" parent="menu_task_sub" sequence="3"
+                  action='tasks_list_action'/>
+         
+    </data>      
+</odoo>

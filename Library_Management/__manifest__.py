@@ -21,7 +21,8 @@
     
     'data':[
         'security/library_security.xml',
-        'security/ir.model.access.csv'
+        'security/ir.model.access.csv',
+        'views/books_view.xml',
     ],
     'demo':[
         'demo/demo_data.xml'
