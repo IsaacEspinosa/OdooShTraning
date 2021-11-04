@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tasks_view_list">
+            <field name="name">task.view.list</field>
+            <field name="model">volunteers.task</field>
+            <field name="arch" type="xml">
+                <tree string="Lista de tareas">
+                    <field name="taskName"/>
+                    <field name="startTime"/>
+                    <field name="endTime"/>
+                    <field name="taskType"/>
+                </tree>
+            </field> 
+        </record>
+        <record model="ir.ui.view" id="tasks_view_form">
+            <field name="name">task.view.form</field>
+            <field name="model">volunteers.task</field>
+            <field name="arch" type="xml">
+                <form string="Formulario de tareas">
+                    <sheet>
+                        <h1><field name="taskName"/></h1>
+                        <group>
+                            <group>
+                                <field name="startTime"/>
+                            </group>
+                            <group>
+                                <field name="endTime"/>
+                            </group>
+                            <group>
+                                <field name="taskType"/>
+                            </group>
+                            <group>
+                                <field name="taskDescription"/>
+                            </group>
+                            <group>
+                                <field name="repeat"/>
+                            </group>
+                            <group>
+                                <field name="frecuency"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>  
+    </data>      
+</odoo>
