@@ -22,7 +22,8 @@
     'data':[
         'security/library_security.xml',
         'security/ir.model.access.csv',
-        'views/books_view.xml',
+        'views/books_views.xml',
+        'views/books_menu.xml',
     ],
     'demo':[
         'demo/demo_data.xml'
