@@ -43,6 +43,16 @@
                     </sheet>
                 </form>
             </field>
-        </record>  
+        </record>
+        <record model="ir.ui.view" id="tasks_view_search">
+            <field name="name">task.view.search</field>
+            <field name="model">volunteers.task</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="taskName"/>
+                    <field name="taskDescription"/>
+                </search>
+            </field> 
+        </record>
     </data>      
 </odoo>
