@@ -22,7 +22,8 @@
     'data':[
         'security/organization_security.xml',
         'security/ir.model.access.csv',
-        'views/tasks_view.xml',
+        'views/tasks_views.xml',
+        'views/tasks_menu.xml',
     ],
     'demo':[
         'demo/demo_data.xml',

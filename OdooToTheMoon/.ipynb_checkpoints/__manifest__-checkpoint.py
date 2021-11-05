@@ -22,8 +22,9 @@
     'data':[
         'security/ship_security.xml',
         'security/ir.model.access.csv',
-        'views/spaceship_view.xml',
-        'demo/demo_data.xml'
+        'views/spaceship_views.xml',
+        'views/spaceship_menu.xml',
+        #'demo/demo_data.xml',
     ],
     'demo':[
         #'demo/demo_data.xml'

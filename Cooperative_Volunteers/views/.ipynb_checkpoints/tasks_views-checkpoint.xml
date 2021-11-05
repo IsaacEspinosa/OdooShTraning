@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="tasks_view_list">
+            <field name="name">task.view.list</field>
+            <field name="model">volunteers.task</field>
+            <field name="arch" type="xml">
+                <tree string="Lista de tareas">
+                    <field name="name"/>
+                    <field name="startTime"/>
+                    <field name="endTime"/>
+                    <field name="taskType"/>
+                    <field name="stateTask"/>
+                </tree>
+            </field> 
+        </record>
+        <record model="ir.ui.view" id="tasks_view_form">
+            <field name="name">task.view.form</field>
+            <field name="model">volunteers.task</field>
+            <field name="arch" type="xml">
+                <form string="Formulario de tareas">
+                    <sheet>
+                        <h1><field name="name"/></h1>
+                        <group>
+                            <group>
+                                <field name="leader"/>
+                            </group>
+                            <group>
+                                <field name="startTime"/>
+                                <field name="endTime"/>
+                            </group>
+                            <group>
+                                <field name="taskType"/>
+                            </group>
+                            <group>
+                                <field name="repeat"/>
+                                <field name="frecuency" attrs="{'invisible': [('repeat','=',False)]}"></field>
+                            </group>
+                            <group>
+                                <field name="taskDescription"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="tasks_view_search">
+            <field name="name">task.view.search</field>
+            <field name="model">volunteers.task</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="taskDescription"/>
+                </search>
+            </field> 
+        </record>
+    </data>      
+</odoo>
