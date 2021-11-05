@@ -18,7 +18,7 @@
         
         <menuitem id="menu_space_app_sub" name="Space App" parent="menu_space_app" sequence="2"/>
         
-        <menuitem id="menu_space_ships" name="Nave espacial" parent="menu_space_app_sub" sequence="3"
+        <menuitem id="menu_space_ships" name="Naves espaciales" parent="menu_space_app_sub" sequence="3"
                   action='ship_model'/>
          
     </data>      

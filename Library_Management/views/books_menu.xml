@@ -16,7 +16,7 @@
                   id="library_app"
                   sequence="1"/>
         
-        <menuitem id="books_menu" name="Libros" parent="library_app" sequence="2"/>
+        <menuitem id="books_menu" name="Biblioteca" parent="library_app" sequence="2"/>
         
         <menuitem id="books_form" name="Libro" parent="books_menu" sequence="3"
                   action='book_form'/>
