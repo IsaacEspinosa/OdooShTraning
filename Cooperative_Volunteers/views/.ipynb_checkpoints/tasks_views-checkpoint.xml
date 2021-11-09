@@ -31,15 +31,17 @@
                             </group>
                             <group>
                                 <field name="taskType"/>
-                            </group>
-                            <group>
-                                <field name="repeat"/>
-                                <field name="frecuency" attrs="{'invisible': [('repeat','=',False)]}"></field>
+                                <field name="frecuency" attrs="{'invisible': [('taskType','=','2')]}"></field>
                             </group>
                             <group>
                                 <field name="taskDescription"/>
                             </group>
                         </group>
+                        <notebook>
+                            <page string="Lista de voluntarios">
+                                <field name="volunteer"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

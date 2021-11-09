@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <!--<record model="ir.ui.view" id="tasks_view_list">
-            <field name="name">task.view.list</field>
-            <field name="model">volunteers.task</field>
+        <record model="ir.ui.view" id="book_view_list">
+            <field name="name">book.view.list</field>
+            <field name="model">library.book</field>
             <field name="arch" type="xml">
-                <tree string="Lista de tareas">
-                    <field name="taskName"/>
-                    <field name="startTime"/>
-                    <field name="endTime"/>
-                    <field name="taskType"/>
+                <tree string="Libros">
+                    <field name="name"/>
+                    <field name="publisher"/>
+                    <field name="gender"/>
+                    <field name="ISBN"/>
                 </tree>
             </field> 
-        </record>-->
+        </record>
         <record model="ir.ui.view" id="book_view_form">
             <field name="name">book.view.form</field>
             <field name="model">library.book</field>
@@ -35,6 +35,9 @@
                             <notebook>
                                 <page string="Texto de nota">
                                     <field name="noteText"/>
+                                </page>
+                                <page string="Alquileres">
+                                    <field name="rentals_ids"/>
                                 </page>
                             </notebook>
                     </sheet>

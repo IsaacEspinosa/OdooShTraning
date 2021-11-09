@@ -11,6 +11,16 @@
                 </p>
             </field>
         </record>
+        <record model="ir.actions.act_window" id="space_missions">
+            <field name="name">Mision</field>
+            <field name="res_model">space.mission</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type= "html">
+                <p class="o_view_nocontent_smiling_face">
+                    Registra tu mision
+                </p>
+            </field>
+        </record>
         
             <menuitem name="Space App"
                   id="menu_space_app"
@@ -18,8 +28,12 @@
         
         <menuitem id="menu_space_app_sub" name="Space App" parent="menu_space_app" sequence="2"/>
         
-        <menuitem id="menu_space_ships" name="Naves espaciales" parent="menu_space_app_sub" sequence="3"
+        <menuitem id="menu_space_ships" name="Naves espaciales" parent="menu_space_app_sub" 
+                  sequence="3"
                   action='ship_model'/>
-         
+        
+        <menuitem id="menu_space_missions" name="Misiones" parent="menu_space_app_sub" 
+                  sequence="4"
+                  action='space_missions'/>
     </data>      
 </odoo>

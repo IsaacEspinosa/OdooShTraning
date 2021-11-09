@@ -12,12 +12,10 @@ class TaskModel(models.Model):
     startTime = fields.Datetime(string="Hora de inicio", default=datetime.datetime.today())
     endTime = fields.Datetime(string="Hora de fin")
     taskType = fields.Selection(string="Tipo de tarea",
-                             selection=[('1','Recoger basura'),
-                                        ('2','Ayuda comunitaria'),
-                                        ('3','Pago voluntario'),
+                             selection=[('1','Recurrente'),
+                                        ('2','Unica'),
                                         ],
-                                copy=False)
-    repeat = fields.Boolean(string="Tarea usual", default=True)
+                                copy=False,default='2')
     frecuency = fields.Selection(string="Frecuencia",
                              selection=[('1','Diario'),
                                         ('2','Semanal'),
@@ -31,7 +29,30 @@ class TaskModel(models.Model):
                                         ('4','Terminada'),
                                         ],
                                 copy=False,defult='1',readonly=True)
-    leader = fields.Text(string="Lider")
+    leader = fields.Many2one(comodel_name="res.partner",string="Lider",required=True)
+    volunteer = fields.Many2many(comodel_name="res.partner",string="Voluntario")#,compute="check_availability")
+    
+        
+    @api.onchange("volunteer")
+    def is_leader(self):
+        for record in self.volunteer:
+            if record.name == self.leader.name:
+                raise UserError("El voluntario que intentas ingresar es el lider de la tarea")
+            
+    #@api.onchange("volunteer")
+    #def check_availability(self):
+    #    start_time = fields.Date.from_string(self.startTime)
+    #    end_time = fields.Date.from_string(self.endTime)
+    #    record_volunteer = self.volunteer.name
+    #    b = self.volunteer.filtered(lambda c: c.name == record_volunteer)
+    #    if len(b) != 0:
+    #        for record in b:
+    #            raise ValidationError("No puede ser %d")%(record)
+    #            st = fields.Date.from_string(record.startTime)
+    #            raise ValidationError("No puede ser")
+    #            et = fields.Date.from_string(record.endTime)
+    #            if not((st > start_time and st > end_time) or (et < start_time and et < endTime)):
+    #                raise ValidationError("El voluntario se encuentra ocupado en el tiempo dado")
     
     @api.onchange("leader")
     def check_leader(self):

@@ -23,7 +23,8 @@
         'security/library_security.xml',
         'security/ir.model.access.csv',
         'views/books_views.xml',
-        'views/books_menu.xml',
+        'views/rentals_views.xml',
+        'views/library_menu.xml',
     ],
     'demo':[
         #'demo/demo_data.xml'

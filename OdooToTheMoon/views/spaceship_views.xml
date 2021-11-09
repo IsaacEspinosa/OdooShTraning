@@ -22,7 +22,8 @@
                         <group>
                             <group>
                                 <field name="shipType"/>
-                                <field name="qtyPassengers" attrs="{'invisible': [('shipType','!=','3')]}"/>
+                                <field name="qtyPassengers" 
+                                       attrs="{'invisible': [('shipType','!=','3')]}"/>
                             </group>
                             <group>
                                 <field name="height"/>
@@ -36,6 +37,11 @@
                                 <field name="activeShip"/>
                             </group>
                         </group>
+                        <notebook>
+                                <page string="Misiones">
+                                    <field name="mission_ids"/>
+                                </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
