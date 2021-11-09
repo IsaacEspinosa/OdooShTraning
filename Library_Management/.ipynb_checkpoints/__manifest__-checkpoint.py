@@ -22,9 +22,11 @@
     'data':[
         'security/library_security.xml',
         'security/ir.model.access.csv',
-        'views/books_view.xml',
+        'views/books_views.xml',
+        'views/rentals_views.xml',
+        'views/library_menu.xml',
     ],
     'demo':[
-        'demo/demo_data.xml'
+        #'demo/demo_data.xml'
     ],
 }

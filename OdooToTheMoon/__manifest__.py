@@ -23,7 +23,8 @@
         'security/ship_security.xml',
         'security/ir.model.access.csv',
         'views/spaceship_views.xml',
-        'views/spaceship_menu.xml',
+        'views/space_menu.xml',
+        'views/missions_views.xml',
         #'demo/demo_data.xml',
     ],
     'demo':[

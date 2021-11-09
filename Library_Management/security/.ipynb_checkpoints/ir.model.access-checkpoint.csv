@@ -1,3 +1,5 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-library_all_access,Bibliotecario,model_library_book,librarian_access,1,1,1,1
-customer_access,Cliente,model_library_book,,1,0,0,0
+books_all_access,Bibliotecario,model_library_book,librarian_access,1,1,1,1
+book_customer_access,Cliente,model_library_book,,1,0,0,0
+rentals_all_access,Bibliotecario,model_library_rental,librarian_access,1,1,1,1
+rental_customer_access,Cliente,model_library_rental,,1,0,0,0

@@ -4,7 +4,7 @@ from odoo.exceptions import UserError,ValidationError
 
 class Book(models.Model):
     _name = 'library.book'
-    _description = 'Model to store information abaut the books'
+    _description = 'library_book'
     
     name = fields.Char(string="Libro",required=True)
     author = fields.Char(string="Autor",required=True)
@@ -23,6 +23,7 @@ class Book(models.Model):
                              copy=False)
     noteText = fields.Text(string="Texto de nota")
     ISBN = fields.Char(string="ISBN",required=True,size=13)
+    rentals_ids = fields.Many2many(comodel_name="library.rental",string="Alquileres")
     
     @api.onchange("ISBN")
     def check_ISBN_lenght(self):
