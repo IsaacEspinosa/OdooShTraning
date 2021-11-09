@@ -26,14 +26,15 @@
                                 <field name="leader"/>
                             </group>
                             <group>
-                                <field name="startTime"/>
-                                <field name="endTime"/>
+                                <field name="startTime" widget='float_time'/>
+                                <field name="endTime" widget='float_time' />
                             </group>
                             <group>
                                 <field name="taskType"/>
                                 <field name="frecuency" attrs="{'invisible': [('taskType','=','2')]}"></field>
                             </group>
                             <group>
+                                <field name="stateTask" force_save="1"/>
                                 <field name="taskDescription"/>
                             </group>
                         </group>
