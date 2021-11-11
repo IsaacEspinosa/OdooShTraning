@@ -24,7 +24,7 @@
                             <field name="return_date"/>
                         </group>
                         <notebook>
-                            <page string="Libros alquilados">
+                            <page string="Exsistencias">
                                 <field name="books_ids"/>
                             </page>
                         </notebook>

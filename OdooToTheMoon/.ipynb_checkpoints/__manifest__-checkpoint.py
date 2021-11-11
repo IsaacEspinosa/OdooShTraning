@@ -17,7 +17,7 @@
     'category':'Training',
     'version':'0.1',
     
-    'depends': ['base'],
+    'depends': ['project'],
     
     'data':[
         'security/ship_security.xml',
@@ -25,6 +25,7 @@
         'views/spaceship_views.xml',
         'views/space_menu.xml',
         'views/missions_views.xml',
+        #'views/project_task.xml'
         #'demo/demo_data.xml',
     ],
     'demo':[

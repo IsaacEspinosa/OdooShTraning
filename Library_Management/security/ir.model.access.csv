@@ -3,3 +3,5 @@ books_all_access,Bibliotecario,model_library_book,librarian_access,1,1,1,1
 book_customer_access,Cliente,model_library_book,,1,0,0,0
 rentals_all_access,Bibliotecario,model_library_rental,librarian_access,1,1,1,1
 rental_customer_access,Cliente,model_library_rental,,1,0,0,0
+copybook_all_access,Bibliotecario,model_library_copybook,librarian_access,1,1,1,1
+copybook_customer_access,Cliente,model_library_copybook,,0,0,0,0

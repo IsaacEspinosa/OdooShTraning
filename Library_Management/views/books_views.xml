@@ -32,14 +32,14 @@
                                 <field name="editionYear"/>
                             </group>
                         </group>
-                            <notebook>
-                                <page string="Texto de nota">
-                                    <field name="noteText"/>
-                                </page>
-                                <page string="Alquileres">
-                                    <field name="rentals_ids"/>
-                                </page>
-                            </notebook>
+                        <notebook>
+                            <page string="Texto de nota">
+                                <field name="noteText"/>
+                            </page>
+                            <page string="Existencias">
+                                <field name="copybook_ids"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>
@@ -52,6 +52,35 @@
                     <field name="author"/>
                     <field name="ISBN"/>
                 </search>
+            </field> 
+        </record>
+        <record model="ir.ui.view" id="book_view_form">
+            <field name="name">copybook.view.form</field>
+            <field name="model">library.copybook</field>
+            <field name="arch" type="xml">
+                <form string="Formulario">
+                    <sheet>
+                        <group>
+                            <field name="id"/>
+                        </group>
+                        <notebook>
+                            <page string="Alquileres">
+                                <field name="rentals_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="copybook_view_list">
+            <field name="name">copybook.view.list</field>
+            <field name="model">library.copybook</field>
+            <field name="arch" type="xml">
+                <tree string="Libros">
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="ISBN"/>
+                </tree>
             </field> 
         </record>
     </data>      

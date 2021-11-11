@@ -12,5 +12,6 @@ class SpaceMission(models.Model):
     name = fields.Char(sting="Nombre de la mision")
     launch_date = fields.Date(string="Fecha de lanzamiento")
     return_date = fields.Date(string="Fecha de regreso")
+    project_ids = fields.One2many(comodel_name="project.task",inverse_name="mission_id", string="Proyectos")
     
     

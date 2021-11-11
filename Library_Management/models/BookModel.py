@@ -22,11 +22,17 @@ class Book(models.Model):
                                         ],
                              copy=False)
     noteText = fields.Text(string="Texto de nota")
-    ISBN = fields.Char(string="ISBN",required=True,size=13)
-    rentals_ids = fields.Many2many(comodel_name="library.rental",string="Alquileres")
+    ISBN = fields.Char(string="ISBN",required=True,size=17,default=" ")
+    copybook_ids = fields.One2many(comodel_name="library.copybook",inverse_name='book_id',string="Existencias")
     
     @api.onchange("ISBN")
     def check_ISBN_lenght(self):
-        record = self
-        if len(record.ISBN) != 13:
-            raise ValidationError("El ISBN debe de contener 13 caracteres")
+        for record in self:
+            if len(record.ISBN.replace("-", "")) == 13 or record.ISBN == " ":
+                if record.ISBN != " ":
+                    a = record.ISBN.replace("-", "")
+                    record.ISBN = a[0:3] + "-" + a[3:5] + "-" + a[5:7] + "-" + a[7:12] + "-" + a[12]
+                else:
+                    record.ISBN = ""
+            else:
+                raise UserError("El ISBN debe de contener 13 caracteres")

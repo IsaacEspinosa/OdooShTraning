@@ -71,8 +71,8 @@
                        default_group_by="name"
                        default_scale="day"
                        color="name"
-                       scales="day,week,month,year"
-               precision="{'day': 'hour:full', 'week': 'day:full', 'month': 'day:full', 'year': 'day:full'}"
+                       scales="day"
+               precision="{'day': 'hour:full'}"
                        >
                     <field name="name"/>
                 </gantt>
