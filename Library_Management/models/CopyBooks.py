@@ -7,9 +7,9 @@ class CopyBook(models.Model):
     _description ="library_copybook"
     
     book_id = fields.Many2one(comodel_name="library.book",string="Existencias",ondelete="cascade")
-    name = fields.Char(string="Nombre", related="book_id.name",readonly=True)
-    ISBN = fields.Char(String="ISBN", related="book_id.ISBN",readonly=True)
-    id = fields.Char(string="Identificador")
+    name = fields.Char(string="Nombre", related="book_id.name",store=True)
+    ISBN = fields.Char(String="ISBN", related="book_id.ISBN",store=True)
+    copybook_id = fields.Char(string="Identificador",size=10)
     rentals_ids = fields.Many2many(comodel_name="library.rental",string="Alquileres")
    
     

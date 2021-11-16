@@ -6,7 +6,7 @@ class Book(models.Model):
     _name = 'library.book'
     _description = 'library_book'
     
-    name = fields.Char(string="Libro",required=True)
+    name = fields.Char(string="Libro",required=True,store=True)
     author = fields.Char(string="Autor",required=True)
     editors = fields.Text(string="Editores")
     publisher = fields.Char(string="Editorial")
@@ -22,7 +22,7 @@ class Book(models.Model):
                                         ],
                              copy=False)
     noteText = fields.Text(string="Texto de nota")
-    ISBN = fields.Char(string="ISBN",required=True,size=17,default=" ")
+    ISBN = fields.Char(string="ISBN",required=True,size=17,default=" ",store=True)
     copybook_ids = fields.One2many(comodel_name="library.copybook",inverse_name='book_id',string="Existencias")
     
     @api.onchange("ISBN")
