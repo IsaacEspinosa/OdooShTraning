@@ -17,7 +17,7 @@
             <field name="name">book.view.form</field>
             <field name="model">library.book</field>
             <field name="arch" type="xml">
-                <form string="Formulario de tareas">
+                <form string="Formulario de libros">
                     <sheet>
                         <h1><field name="name"/></h1>
                         <group>
@@ -32,14 +32,14 @@
                                 <field name="editionYear"/>
                             </group>
                         </group>
-                            <notebook>
-                                <page string="Texto de nota">
-                                    <field name="noteText"/>
-                                </page>
-                                <page string="Alquileres">
-                                    <field name="rentals_ids"/>
-                                </page>
-                            </notebook>
+                        <notebook>
+                            <page string="Texto de nota">
+                                <field name="noteText"/>
+                            </page>
+                            <page string="Existencias">
+                                <field name="copybook_ids"/>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

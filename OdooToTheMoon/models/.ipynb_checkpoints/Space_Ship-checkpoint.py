@@ -22,7 +22,8 @@ class SpaceShip(models.Model):
                                         ('2','Nave no tripulada'),
                                         ('3','Nave tripulada')],
                                copy=False)
-    mission_ids = fields.One2many(space.mission,inverse_name='spaceship_id',string="Misiones asignadas")
+    mission_ids = fields.One2many(comodel_name="space.mission",inverse_name='spaceship_id',
+                                  string="Misiones asignadas")
     
     @api.constrains("height","diameter")
     def check_shipDimensions(self):

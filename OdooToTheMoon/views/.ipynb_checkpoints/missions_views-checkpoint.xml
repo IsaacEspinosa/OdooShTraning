@@ -32,6 +32,9 @@
                             <page string="Tripulacion">
                                 <field name="tripulation_ids"/>
                             </page>
+                            <page string="Proyectos">
+                                <field name="project_ids"/>
+                            </page>
                         </notebook>
                     </sheet>
                 </form>

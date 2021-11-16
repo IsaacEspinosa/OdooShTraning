@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+         <record model="ir.ui.view" id="copybook_view_form">
+            <field name="name">copybook.view.form</field>
+            <field name="model">library.copybook</field>
+            <field name="arch" type="xml">
+                <form string="Formulario">
+                    <sheet>
+                        <group>
+                            <field name="copybook_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="copybook_view_list">
+            <field name="name">copybook.view.list</field>
+            <field name="model">library.copybook</field>
+            <field name="arch" type="xml">
+                <tree string="Libros">
+                    <field name="copybook_id"/>
+                    <field name="name"/>
+                    <field name="ISBN"/>
+                </tree>
+            </field> 
+        </record>
+    </data>      
+</odoo>

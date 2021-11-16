@@ -7,8 +7,8 @@
             <field name="arch" type="xml">
                 <tree string="Lista de tareas">
                     <field name="name"/>
-                    <field name="startTime"/>
-                    <field name="endTime"/>
+                    <field name="startTime" widget='float_time'/>
+                    <field name="endTime" widget='float_time'/>
                     <field name="taskType"/>
                     <field name="stateTask"/>
                 </tree>
@@ -23,11 +23,16 @@
                         <h1><field name="name"/></h1>
                         <group>
                             <group>
-                                <field name="leader"/>
+                                <field name="leader_id"/>
                             </group>
                             <group>
+                                <field name="startDate"/>
+                                <field name="endDate"/>
                                 <field name="startTime" widget='float_time'/>
-                                <field name="endTime" widget='float_time' />
+                                <field name="endTime" widget='float_time'/>
+                                <field name="startDateTime" invisible='1'/>
+                                <field name="endDateTime" invisible='1'/>
+                                <field name="todayDate" invisible='1'/>
                             </group>
                             <group>
                                 <field name="taskType"/>
@@ -40,7 +45,7 @@
                         </group>
                         <notebook>
                             <page string="Lista de voluntarios">
-                                <field name="volunteer"/>
+                                <field name="volunteer_ids"/>
                             </page>
                         </notebook>
                     </sheet>
@@ -55,6 +60,22 @@
                     <field name="name"/>
                     <field name="taskDescription"/>
                 </search>
+            </field> 
+        </record><record model="ir.ui.view" id="tasks_view_gantt">
+            <field name="name">task.view.gant</field>
+            <field name="model">volunteers.task</field>
+            <field name="arch" type="xml">
+                <gantt string="Tareas de hoy"
+                       date_start="startDateTime"
+                       date_stop="endDateTime"
+                       default_group_by="name"
+                       default_scale="day"
+                       color="name"
+                       scales="day"
+               precision="{'day': 'hour:full'}"
+                       >
+                    <field name="name"/>
+                </gantt>
             </field> 
         </record>
     </data>      

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_project_form2_inherit_space">
+            <field name="name">view.project.form2.inherit.space</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type= "xml">
+                <xpath expr="//field[@name='project_id']" position="after">
+                    <field name="mission_id"/>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_project_kanban_inherit_space">
+            <field name="name">view.project.kanban.inherit.space</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="arch" type= "xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="mission_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
