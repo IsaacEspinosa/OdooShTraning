@@ -24,6 +24,8 @@
         'security/ir.model.access.csv',
         'views/tasks_views.xml',
         'views/tasks_menu.xml',
+        'report/task_report.xml',
+        'report/volunteer_report.xml',
     ],
     'demo':[
         #'demo/demo_data.xml',

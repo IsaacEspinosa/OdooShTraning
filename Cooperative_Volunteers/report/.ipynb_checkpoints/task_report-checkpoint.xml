@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+            id="task_report"
+            model="volunteers.task"
+            string="Reporte de tarea"
+            name="Cooperative_Volunteers.task_report_document"
+            file="Cooperative_Volunteers.task_report"
+            report_type="qweb-html"/>
+    <template id="task_report_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3 t-field="doc.name" class="mt16"/>
+                        <div class="row mt32 mb32" id="task_info">
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Horario de la tarea: </strong>
+                                <t t-if="doc.startTime">
+                                    <span t-field="doc.startTime" t-options="{&quot;widget&quot;: &quot;float_time&quot;}"/>
+                                </t>
+                                <strong> a </strong>
+                                <t t-if="doc.endTime">
+                                    <span t-field="doc.endTime" t-options="{&quot;widget&quot;: &quot;float_time&quot;}"/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32" id="task_info">
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Descripcion: </strong>
+                                <t t-if="doc.taskDescription">
+                                    <span t-field="doc.taskDescription"/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32" id="task_info">
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Tipo de tarea: </strong>
+                                <t t-if="doc.taskType">
+                                    <span t-field="doc.taskType"/>
+                                </t>
+                            </div>
+                            <div class="col-auto mw-100 mb-2" t-if="doc.frecuency">
+                                <strong>Frecuencia: </strong>
+                                <span t-field="doc.frecuency"/>
+                            </div>
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Estado:</strong>
+                                <t t-if="doc.stateTask">
+                                    <span t-field="doc.stateTask"/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32" id="task_info">
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Lider: </strong>
+                                <t t-if="doc.leader_id">
+                                    <span t-field="doc.leader_id.name"/>
+                                </t>
+                            </div>
+                        </div>
+                        <h4>Voluntarios</h4>
+                        <table class="table table-sm o_main_table">
+                            <thead>
+                                <tr>
+                                    <th name="th_name">Nombre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.volunteer_ids" t-as="volunteer">
+                                    <tr>
+                                        <td t-if="volunteer.name" name="td_name">
+                                            <span t-field="volunteer.name"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
