@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+            id="spaceship_report"
+            model="space.spaceship"
+            string="Reporte de nave"
+            name="OdooToTheMoon.spaceship_report_document"
+            file="OdooToTheMoon.spaceship_report"
+            report_type="qweb-html"/>
+    <template id="spaceship_report_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3 t-field="doc.name" class="mt16"/>
+                        <div class="row mt32 mb32" id="spaceship_info">
+                            <div class="col-auto mw-100 mb-2" t-if="doc.qtyPassengers">
+                                <strong>Cantidad de pasajeros: </strong>
+                                <t t-if="doc.qtyPassengers">
+                                    <span t-field="doc.qtyPassengers"/>
+                                </t>
+                            </div>
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Estado de la nave: </strong>
+                                <t t-if="doc.activeShip">
+                                    <span>Activa</span>
+                                </t>
+                                <t t-if="not doc.activeShip">
+                                    <span>Inactiva</span>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row mt32 mb32" id="spaceship_info">
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Altura (m): </strong>
+                                <t t-if="doc.height">
+                                    <span t-field="doc.height"/>
+                                </t>
+                            </div>
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Diametro (m): </strong>
+                                <t t-if="doc.diameter">
+                                    <span t-field="doc.diameter"/>
+                                </t>
+                            </div>
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Peso (T): </strong>
+                                <t t-if="doc.weight">
+                                    <span t-field="doc.weight"/>
+                                </t>
+                            </div>
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Tipo de combustible:</strong>
+                                <t t-if="doc.fuelType">
+                                    <span t-field="doc.fuelType"/>
+                                </t>
+                            </div>
+                            <div class="col-auto mw-100 mb-2">
+                                <strong>Tipo de nave: </strong>
+                                <t t-if="doc.shipType">
+                                    <span t-field="doc.shipType"/>
+                                </t>
+                            </div>
+                        </div>
+                        <h4>Misiones</h4>
+                        <table class="table table-sm o_main_table">
+                            <thead>
+                                <tr>
+                                    <th name="th_name">Nombre de la mision</th>
+                                    <th name="th_launch_date">Fecha de lanzamiento</th>
+                                    <th name="th_return_date">Fecha de regreso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.mission_ids" t-as="mission">
+                                    <tr>
+                                        <td t-if="mission.name" name="td_name">
+                                            <span t-field="mission.name"/>
+                                        </td>
+                                        <td t-if="mission.launch_date" name="td_launch_date">
+                                            <span t-field="mission.launch_date"/>
+                                        </td>
+                                        <td t-if="mission.return_date" name="td_return_date">
+                                            <span t-field="mission.return_date"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

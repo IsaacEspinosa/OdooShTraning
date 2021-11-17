@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+            id="volunteer_report"
+            model="res.users"
+            string="Reporte de voluntarios"
+            name="base.volunteer_report_document"
+            file="base.volunteer_report"
+            report_type="qweb-html"/>
+    <template id="volunteer_report_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h3 t-field="doc.name" class="mt16"/>
+                        <h4>Tareas asignadas</h4>
+                        <table class="table table-sm o_main_table">
+                            <thead>
+                                <tr>
+                                    <th name="th_name">Nombre de la taera</th>
+                                </tr>
+                                <tr>
+                                    <th name="th_startTime">Hora de inicio</th>
+                                </tr>
+                                <tr>
+                                    <th name="th_endTime">Hora de fin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.task_ids" t-as="task">
+                                    <tr>
+                                        <td t-if="task.name" name="td_name">
+                                            <span t-field="task.name"/>
+                                        </td>
+                                        <td t-if="task.startTime" name="td_startTime">
+                                            <span t-field="task.startTime" t-options="{&quot;widget&quot;: &quot;float_time&quot;}"/>
+                                        </td>
+                                        <td t-if="task.endTime" name="td_endTime">
+                                            <span t-field="task.endTime" t-options="{&quot;widget&quot;: &quot;float_time&quot;}"/>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

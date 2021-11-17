@@ -25,7 +25,8 @@
         'views/spaceship_views.xml',
         'views/space_menu.xml',
         'views/missions_views.xml',
-        #'views/project_task.xml'
+        'views/project_task.xml',
+        'report/spaceship_report.xml'
         #'demo/demo_data.xml',
     ],
     'demo':[
