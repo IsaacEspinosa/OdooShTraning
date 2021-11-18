@@ -14,4 +14,10 @@ class SpaceMission(models.Model):
     return_date = fields.Date(string="Fecha de regreso")
     project_ids = fields.One2many(comodel_name="project.task",inverse_name="mission_id", string="Proyectos")
     
+    @api.constrains("launch_date","return_date")
+    def check_Date(self):
+        if self.launch_date and self.return_date:
+            if self.launch_date > self.return_date:
+                raise UserError("La fecha de regreso no puede ser antes de la fecha de lanzamiento")
+    
     
