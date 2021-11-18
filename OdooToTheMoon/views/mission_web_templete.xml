@@ -26,8 +26,8 @@
                                     <span t-field="crew_member.name"/>
                                 </p>
                             </t>
-                            <t t-if="not mission.tripulation_ids">
-                                <p>Aún no se ha asignado ningun tripulante</p>
+                            <t t-if="mission.spaceship_id.shipType != '3'">
+                                <p>Este tipo de nave no necesita pasajeros</p>
                             </t>
                         </t>
                     </div>

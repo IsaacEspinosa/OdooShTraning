@@ -22,6 +22,8 @@
                     <field name="copybook_id"/>
                     <field name="name"/>
                     <field name="ISBN"/>
+                    <field name="available_copybook"/>
+                    <field name="today_check" invisible="1"/>
                 </tree>
             </field> 
         </record>
