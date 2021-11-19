@@ -78,5 +78,15 @@
                 </gantt>
             </field> 
         </record>
+        <record model="ir.cron" id="update_date_value">
+            <field name='name'>Update Date</field>
+            <field name='interval_number'>1</field>
+            <field name='interval_type'>day</field>
+            <field name="numbercall">-1</field>
+            <field name="active">True</field>
+            <field name="model">volunteers.task</field>
+            <field name="function">curDate</field>
+            <field name="args">()</field>
+        </record>
     </data>      
 </odoo>

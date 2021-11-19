@@ -15,8 +15,8 @@ class TaskModel(models.Model):
     endTime = fields.Float(string="Hora de fin", digits=(2,2))
     startDate = fields.Date(string="Fecha de inicio")
     endDate = fields.Date(string="Fecha de fin")
-    startDateTime = fields.Datetime(string="Fecha de inicio",store=True)
-    endDateTime = fields.Datetime(string="Fecha de fin",store=True)
+    startDateTime = fields.Datetime(string="Fecha y hora de inicio",store=True)
+    endDateTime = fields.Datetime(string="Fecha y hora de fin",store=True)
     todayDate = fields.Date(string='Today', default=lambda s: fields.Date.context_today(s))
     taskType = fields.Selection(string="Tipo de tarea",
                              selection=[('1','Recurrente'),
@@ -41,24 +41,24 @@ class TaskModel(models.Model):
     
     @api.onchange("volunteer_ids")
     def is_leader(self):
-        for record in self.volunteer:
+        for record in self.volunteer_ids:
             if record.name == self.leader_id.name:
                 raise UserError("El voluntario que intentas ingresar es el lider de la tarea")
     
-    @api.onchange("startTime","endTime")
+    @api.constrains("startTime","endTime")
     def check_time(self):
         if self.startTime > 23 or self.endTime > 23 or self.startTime < 0 or self.endTime < 0:
             raise UserError("Hora no valida")
         if self.startTime > self.endTime:
             raise UserError("La hora de fin no puede ser antes de la hora de inicio")
         
-    @api.onchange("startDate","endDate")
+    @api.constrains("startDate","endDate")
     def check_Date(self):
         if self.startDate and self.endDate:
             if self.startDate > self.endDate:
                 raise UserError("La fecha de fin no puede ser antes de la fecha de inicio")
             
-    @api.onchange("leader_id")
+    @api.constrains("leader_id")
     def check_leader(self):
         record = self
         if record.leader_id.name != "" and record.stateTask == "1":

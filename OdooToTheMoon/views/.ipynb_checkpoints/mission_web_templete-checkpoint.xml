@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="mission_website">
+            <t t-call="website.layout">
+                <t t-set="title">Space App</t>
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1>Misiones</h1>
+                        <t t-foreach="mission" t-as="mission">
+                            <h3>
+                                <t t-esc="mission.name"/>
+                            </h3>
+                            <p>Nave:
+                                <span t-field="mission.spaceship_id.name"/>
+                            </p>
+                            <p>Fecha de lanzamiento:
+                                <span t-field="mission.launch_date"/>
+                            </p>
+                            <p>Fecha de regreso: 
+                                <span t-field="mission.return_date"/>
+                            </p>
+                            <strong>Tripulacion</strong>
+                            <t t-foreach="mission.tripulation_ids" t-as="crew_member">
+                                <p>
+                                    <span t-field="crew_member.name"/>
+                                </p>
+                            </t>
+                            <t t-if="mission.spaceship_id.shipType != '3'">
+                                <p>Este tipo de nave no necesita pasajeros</p>
+                            </t>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>      
+</odoo>

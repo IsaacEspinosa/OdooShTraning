@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields, api
 from odoo.exceptions import UserError,ValidationError 
+from datetime import date
 
 class Book(models.Model):
     _name = 'library.book'
@@ -36,3 +37,18 @@ class Book(models.Model):
                     record.ISBN = ""
             else:
                 raise UserError("El ISBN debe de contener 13 caracteres")
+                
+    def button_availability(self):
+        self = self.sudo()
+        for record in self:
+            for item in record.copybook_ids:
+                if item.rentals_ids:
+                    for rental in item.rentals_ids:
+                        if rental.loan_date <= date.today() <= rental.return_date:
+                            item.available_copybook=False
+                        else:
+                            item.available_copybook=True
+                else:
+                    item.available_copybook=True
+                item.today_check = date.today()
+        return True

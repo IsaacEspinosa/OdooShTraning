@@ -64,6 +64,8 @@
                             <thead>
                                 <tr>
                                     <th name="th_name">Nombre</th>
+                                    <th name="th_phone">Telefono</th>
+                                    <th name="th_email">Correo</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,6 +73,12 @@
                                     <tr>
                                         <td t-if="volunteer.name" name="td_name">
                                             <span t-field="volunteer.name"/>
+                                        </td>
+                                        <td t-if="volunteer.phone" name="td_phone">
+                                            <span t-field="volunteer.phone"/>
+                                        </td>
+                                        <td t-if="volunteer.email" name="td_email">
+                                            <span t-field="volunteer.email"/>
                                         </td>
                                     </tr>
                                 </t>
