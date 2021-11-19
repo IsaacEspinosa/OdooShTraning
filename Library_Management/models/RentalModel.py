@@ -15,16 +15,18 @@ class Rental(models.Model):
     
     @api.onchange('books_ids')
     def check_availability(self):
+        aux = len(self.books_ids)
+        count = 0
         for record in self.books_ids:
-            last_book = record[len(record)-1]
-            if record.available_copybook == False and not record != last_book:
-                   raise UserError("El libro que intentas alquilar no se encuentra disponible")
+            count = count+1
+            if not record.available_copybook and aux == count:
+                raise UserError("El libro que intentas alquilar no se encuentra disponible")
             if record.today_check != date.today():
                 raise UserError("No se ha comprobado la disponibilidad de las existencias")
             record.available_copybook = False
     
     @api.constrains("loan_date","return_date")
-    def check_Date(self):
+    def check_date(self):
         if self.loan_date and self.return_date:
             if self.loan_date > self.return_date:
                 raise UserError("La fecha de devolucion no puede ser antes de la fecha del prestamo")

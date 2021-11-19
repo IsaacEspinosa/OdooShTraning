@@ -26,6 +26,7 @@
         'views/rentals_views.xml',
         'views/library_menu.xml',
         'views/copybooks_view.xml',
+        'views/library_web_template.xml',
     ],
     'demo':[
         #'demo/demo_data.xml'

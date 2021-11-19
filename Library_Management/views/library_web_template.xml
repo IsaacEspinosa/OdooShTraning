@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="available_books_website">
+            <t t-call="website.layout">
+                <t t-set="title">Biblioteca</t>
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1>Libros disponibles</h1>
+                        <t t-foreach="book" t-as="book">
+                            <h3>
+                                <t t-esc="book.name"/>
+                            </h3>
+                            <p>Autor:
+                                <span t-field="book.author"/>
+                            </p>
+                            <p>Editores:
+                                <t t-if="not book.editors">
+                                    <span>Este libro no tiene editores</span>
+                                </t>
+                                <t t-if="book.editors">
+                                    <span t-field="book.editors"/>
+                                </t>
+                            </p>
+                            <p>Editorial: 
+                                <span t-field="book.publisher"/>
+                            </p>
+                            <p>Año de edicion: 
+                                <span t-field="book.editionYear"/>
+                            </p>
+                            <p>Genero: 
+                                <span t-field="book.gender"/>
+                            </p>
+                            <p>ISBN: 
+                                <span t-field="book.ISBN"/>
+                            </p>
+                            <p>
+                                <span t-field="book.noteText"/>
+                            </p>
+                            <strong>Disponibilidad:</strong>
+                            <t t-if="not book.copybook_ids">
+                                <p>Este libro no se encuentra disponible para un alquiler</p>
+                            </t>
+                            <t t-foreach="book.copybook_ids" t-as="copybook">
+                                <p t-field="copybook.copybook_id"></p>
+                            </t>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>      
+</odoo>
